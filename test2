@@ -1,1 +1,815 @@
 
+//사각형
+
+//#include <GL/glut.h>
+
+//void mydisplay() {
+//	glClear(GL_COLOR_BUFFER_BIT); // 화면을 clear 해줌
+//	glBegin(GL_POLYGON);         // 그래픽 Object를 선언
+//	glVertex3f(-0.5, -0.5, 0.0);  //점 지정
+//	glVertex3f(0.5, -0.5, 0.0);
+//	glVertex3f(0.5, 0.5, 0.0);
+//	glVertex3f(-0.5, 0.5, 0.0);
+//	glEnd();                    // 그래픽 Object 내용 끝
+//	glFlush();                   // 버퍼에 있는 내용을 그리도록 한다
+//}
+//
+//int main(int argc, char* argv[]) {
+//	glutInit(&argc, argv);                 //GLUT 라이브러리 초기화
+//	glutCreateWindow("test");              // 윈도우를 생성시키고
+//	glutDisplayFunc(mydisplay);            // display 함수를 지정
+//	glutMainLoop();                       // 메인루프에 돌입
+//	return 0;                           // 메인루프가 끝날 때 까지 실행 X
+//}
+
+//삼각형 점
+//#include <GL/glut.h>
+//
+//void mydisplay() {
+//	glClear(GL_COLOR_BUFFER_BIT);
+//	glPointSize(10.0);
+//	glBegin(GL_POINTS);
+//	glVertex2f(0.0, 0.5);
+//	glVertex2f(-0.5, -0.5);
+//	glVertex2f(0.5, -0.5);
+//	glEnd();
+//	glFlush();
+//}
+//
+//int main(int argc, char* argv[]) {
+//	glutInit(&argc, argv);
+//	glutCreateWindow("test");
+//	glutDisplayFunc(mydisplay);
+//	glutMainLoop();
+//	return 0;
+//}
+
+ //ㄴ 선
+//#include <GL/glut.h>
+//
+//void mydisplay() {
+//	glClear(GL_COLOR_BUFFER_BIT);
+//
+//	glBegin(GL_LINE_STRIP);
+//	glVertex2f(0.0, 0.5);
+//	glVertex2f(-0.5, -0.5);
+//	glVertex2f(0.5, -0.5);
+//	glEnd();
+//	glFlush();
+//}
+//int main(int argc, char* argv[]) {
+//	glutInit(&argc, argv);
+//	glutCreateWindow("test");
+//	glutDisplayFunc(mydisplay);
+//	glutMainLoop();
+//	return 0;
+//}
+
+// 선 ///
+//#include <GL/glut.h>
+//
+//void mydisplay()
+//{
+//	glClear(GL_COLOR_BUFFER_BIT);
+//	glBegin(GL_LINES);
+//	GLfloat x = -0.8;
+//	GLfloat y = 0.4;
+//	GLfloat range[2], granu;
+//
+//	glGetFloatv(GL_LINE_WIDTH_RANGE, range);
+//
+//	glGetFloatv(GL_LINE_WIDTH_GRANULARITY, &granu);
+//	for (int i = 0; i < 8; i++) {
+//		glVertex2f(x, y);
+//		x += 0.3;
+//		y *= -1;
+//	}
+//	glEnd();
+//	glFlush();
+//}
+//int main(int argc, char* argv[]) {
+//	glutInit(&argc, argv);
+//	glutCreateWindow("test");
+//	glutDisplayFunc(mydisplay);
+//	glutMainLoop();
+//	return 0;
+//}
+
+
+// GLUT 모델링
+//
+//#include <GL/glut.h>
+//
+//void mydisplay() {
+//	glClear(GL_COLOR_BUFFER_BIT); // 화면을 clear 해줌
+//	glutWireCube(0.4); // 옆에서 본 큐브/ 사이즈는 0.4
+//	glFlush();                   // 버퍼에 있는 내용을 그리도록 한다
+//}
+//
+//
+//int main(int argc, char* argv[]) {
+//	glutInit(&argc, argv);
+//	glutCreateWindow("test");
+//	glutDisplayFunc(mydisplay);
+//	glutMainLoop();
+//	return 0;
+//}
+
+//#include <GL/glut.h>
+//
+//void mydisplay() {
+//	glClear(GL_COLOR_BUFFER_BIT); // 화면을 clear 해줌
+//	glutWireSphere(0.4, 50, 20); //radus , slices, stacks
+//	glFlush();                   // 버퍼에 있는 내용을 그리도록 한다
+//}
+//
+//
+//int main(int argc, char* argv[]) {
+//	glutInit(&argc, argv);
+//	glutCreateWindow("test");
+//	glutDisplayFunc(mydisplay);
+//	glutMainLoop();
+//	return 0;
+//}
+
+// 원환체 Solid 색칠이 되어있는 느낌 원근감이 느껴지지 않는다
+//#include <GL/glut.h>
+//
+//void mydisplay() {
+//	glClear(GL_COLOR_BUFFER_BIT); // 화면을 clear 해줌
+//	glutSolidTorus(0.1, 0.3, 20 , 100);
+//	glFlush();                   // 버퍼에 있는 내용을 그리도록 한다
+//}
+//
+//
+//int main(int argc, char* argv[]) {
+//	glutInit(&argc, argv);
+//	glutCreateWindow("test");
+//	glutDisplayFunc(mydisplay);
+//	glutMainLoop();
+//	return 0;
+//}
+
+//차 주전자
+//#include <GL/glut.h>
+//
+//void mydisplay() {
+//	glClear(GL_COLOR_BUFFER_BIT); // 화면을 clear 해줌
+//	glutWireTeapot(0.3);
+//	glFlush();                   // 버퍼에 있는 내용을 그리도록 한다
+//}
+//
+//
+//int main(int argc, char* argv[]) {
+//	glutInit(&argc, argv);
+//	glutCreateWindow("test");
+//	glutDisplayFunc(mydisplay);
+//	glutMainLoop();
+//	return 0;
+//}
+// 입력콜백과 GLUT (Reshape콜백)
+
+
+// Reshape 콜백 
+
+//#include <GL/glut.h>
+//#include <GL/gl.h>
+//#include <GL/GLU.h>
+//
+//void mydisplay() {
+//	glClear(GL_COLOR_BUFFER_BIT);    //컬러버퍼에 초기화 색을 가한다
+//	glColor3f(0.5, 0.5, 1.5);       //색상설정 (R 0.5 , G 0.5 , B 1.5)
+//	glBegin(GL_POLYGON);               //사각형임
+//		glVertex3f(-0.5, -0.5, 0.0);     
+//		glVertex3f(0.5, -0.5, 0.0);      
+//		glVertex3f(0.5, 0.5, 0.0);
+//		glVertex3f(-0.5, 0.5, 0.0);
+//	glEnd();
+//	glFlush();
+//}
+//void MyReshape(int NewWidth, int NewHeight) {
+//	glViewport(0, 0, NewWidth, NewHeight); 
+//	GLfloat widthFactor = (GLfloat)NewWidth / (GLfloat)300;  // 300을 기준으로 NewWidth가 얼마나 커졌나?
+//	GLfloat HeightFactor = (GLfloat)NewHeight / (GLfloat)300;
+//	glMatrixMode(GL_PROJECTION); //초기화하고
+//	glLoadIdentity();  //원근감 없이 사이즈로 바로 보낸다??????
+//	glOrtho(-1.0 * widthFactor, 1.0 * widthFactor, -1.0 * HeightFactor, 1.0 * HeightFactor, -1.0, 1.0); 
+//}
+//int main(int argc, char** argv) {
+//	glutInit(&argc, argv);
+//	glutInitDisplayMode(GLUT_RGB);  //RGB모드 (없어도 실행은 된다.)
+//	glutInitWindowSize(300, 300);   //초기 윈도우 사이즈 300x300으로 설정
+//	glutInitWindowPosition(0, 0); //실행 할 때 윈도우 위치
+//	glutCreateWindow("OpenGl Example Drawing"); // 윈도우를 만드는 것
+//	glClearColor(1.0, 1.0, 1.0, 1.0); //윈도우의 (배경) 초기화 색 설정  (백색)
+//	glutDisplayFunc(mydisplay);
+//	glutReshapeFunc(MyReshape);
+//	glutMainLoop();
+//	return 0;
+//}
+
+//키보드 콜백 - 키보드에서 누르는 키에 따라 다른도형이 나타난다
+
+//#define _WIDTH 300 //크기고정
+//#define _HEIGNT 300
+//
+//int mode = 0;
+//
+//
+//#include <GL/glut.h>
+//#include <GL/gl.h>
+//#include <GL/GLU.h>
+//
+//void MyDisplay() {
+//	glClear(GL_COLOR_BUFFER_BIT);
+//	glColor3f(0.5, 0.5, 0.5);
+//	if (mode == 0) {
+//		glBegin(GL_POLYGON);
+//		glVertex3f(-0.5, -0.5, 0.0);
+//		glVertex3f(0.5, -0.5, 0.0);
+//		glVertex3f(0.5, 0.5, 0.0);
+//		glVertex3f(-0.5, 0.5, 0.0);
+//		glEnd();
+//	}
+//	else if (mode == 1)
+//		glutWireTeapot(0.6);
+//	else if (mode == 2)
+//		glutWireIcosahedron();
+//	else if (mode == 3)
+//		glutWireCube(0.6);
+//	glFlush();
+//	}
+//
+//void Mykeyboard(unsigned char keypressed, int x, int y) {
+//	switch (keypressed) {
+//	case 'r':         //처음 도형
+//		mode = 0;
+//		break;
+//	case 'a':        //주전자
+//		mode = 1;
+//		break;
+//	case 'b':
+//		mode = 2;     //정이십면체
+//		break;
+//	case 'c':
+//		mode = 3;    //정사면체
+//		break;
+//	case 'Q':
+//		exit(0); break;
+//	case 'q':
+//		exit(0); break;
+//	case 27: //esc
+//		exit(0); break;
+//	}
+//	glutPostRedisplay(); // 이 함수를 쓰지 않으면 모드는 바뀌지만 Display가 호출이 되지 않는다
+//}
+//void MyReshape(int NewWidth, int NewHeight) {
+//	glViewport(0, 0, NewWidth, NewHeight); 
+//	GLfloat widthFactor = (GLfloat)NewWidth / (GLfloat)_WIDTH;  // 300을 기준으로 NewWidth가 얼마나 커짐
+//	GLfloat HeightFactor = (GLfloat)NewHeight / (GLfloat)_HEIGNT;
+//	glMatrixMode(GL_PROJECTION); //초기화하고
+//	glLoadIdentity();  
+//	glOrtho(-1.0 * widthFactor, 1.0 * widthFactor, -1.0 * HeightFactor, 1.0 * HeightFactor, -1.0, 1.0); 
+//}
+//int main(int argc, char** argv) {
+//	glutInit(&argc, argv); //초기화
+//	glutInitDisplayMode(GLUT_RGB); //RGB사용
+//	glutInitWindowSize(_WIDTH, _HEIGNT); //크기지정
+//	glutInitWindowPosition(0, 0); //위치
+//	glutCreateWindow("OpenGL"); 
+//	glClearColor(1.0, 1.0, 1.0, 1.0); //배경컬러
+//
+//	//콜백함수 등록
+//	glutDisplayFunc(MyDisplay);
+//	glutKeyboardFunc(Mykeyboard);
+//	glutReshapeFunc(MyReshape);
+//
+//	glutMainLoop();
+//	return 0;
+//}
+
+
+//마우스 버튼이 눌러지거나, 마우스가 움직일때 불려지는 함수
+//마우스 클릭에 따라 색상변화, 움직임에 따라 도형변화, 윈도우밖으로 마우스가나가면 화면지우고 들어오면 다시 그리기
+
+//#include <GL/glut.h>
+//
+//#define HEIGHT 300
+//#define WIDHT 300
+//
+//GLfloat r=1.0, g=1.0, b=1.0 ;//누를때마다 색상이 조금 식 변경
+//GLint cur_x= -1, cur_y= -1; //마우스 위치를 알기위해
+//int mode_visual = 1; // 마우스 들어올때
+//int mode= 0;
+//
+//void reshape(int widht, int height) {
+//	glViewport(0, 0, widht, height);
+//	GLfloat f_w = (GLfloat)widht / (GLfloat)WIDHT;
+//	GLfloat f_h = (GLfloat)height / (GLfloat)HEIGHT;
+//	glMatrixMode(GL_PROJECTION);
+//	glLoadIdentity();
+//	glOrtho(-1.0 * f_w, 1.0 * f_w, -1.0 * f_h, 1.0 * f_h, -1, 1);
+//}
+//
+//void display() {
+//	glClear(GL_COLOR_BUFFER_BIT);
+//	if (mode_visual == 1) {
+//		if (mode == 0)
+//			glutWireSphere(0.3, 15, 15);
+//		else if (mode == 1)
+//			glutWireTeapot(0.3);
+//	}
+//	else {
+//	}
+//	glFlush();
+//}
+//
+//void mouseBtn(int btn, int states, int x, int y) {
+//	//if (btn == GLUT_LEFT_BUTTON && states == GLUT_UP) {//왼쪽마우스를 뗄떼
+//	//	glColor3f(r, g, b);
+//	//} 
+//	if (btn == GLUT_LEFT_BUTTON && states == GLUT_UP) {// 왼쪽마우스 뗄떼 색깔이 조금식 변경
+//		mode = (mode + 1) % 2;
+//		glutPostRedisplay();
+//		
+//		
+//	}
+//	//마우스 드래그
+//}void mouseDrag(int x, int y) {
+//	GLint dx, dy; //이전과의 차이
+//	if (cur_x >= 0 || cur_y >= 0) {
+//		dx = abs(x - cur_x); //현재 값은 cur 가장최근의 값 x (abs 로 절대값)
+//		dy = abs(y - cur_y); //이전값과 현재값의 차이는 얼마인가 알수 있음
+//		GLint sum = dx + dy; //합한값
+//	
+//			g = (g - 0.1) < 0 ? 0 : g - 0.1;
+//			b = (b - 0.1) < 0 ? 0 : b - 0.1;
+//			glColor3f(r, g, b);
+//			
+//			glutPostRedisplay();
+//		}
+//	
+//	cur_x = x; //현재값 update
+//	cur_y = y;
+//}
+//void winEntry(int state) { //마우스가 들어왔나 안들어왔나
+//	if (state == GLUT_LEFT) {
+//		mode_visual = 0;
+//	} //마우스가 나갔을때 사라짐
+//	else
+//		mode_visual = 1;
+//	glutPostRedisplay();
+//
+//}
+//
+//
+//int main(int argc, char** argv) {
+//	glutInit(&argc, argv);
+//	glutInitDisplayMode(GLUT_RGB);
+//	glutCreateWindow("title");
+//	glutInitWindowSize(WIDHT, HEIGHT);
+//	glutDisplayFunc(display);
+//	glutReshapeFunc(reshape);
+//	glutMouseFunc(mouseBtn); //마우스 클릭
+//	glutMotionFunc(mouseDrag); //마우스 움직임
+//	glutEntryFunc(winEntry);
+//
+//	glutMainLoop();
+//	return 0;
+//}
+
+
+//메뉴 콜백
+//#include <GL/glut.h>
+//
+//#define HEIGHT 300
+//#define WIDHT 300
+//
+//GLfloat r=1.0, g=1.0, b=1.0 ;//누를때마다 색상이 조금 식 변경
+//GLint cur_x= -1, cur_y= -1; //마우스 위치를 알기위해
+//int mode= 0;
+//
+//void reshape(int widht, int height) {
+//	glViewport(0, 0, widht, height);
+//	GLfloat f_w = (GLfloat)widht / (GLfloat)WIDHT;
+//	GLfloat f_h = (GLfloat)height / (GLfloat)HEIGHT;
+//	glMatrixMode(GL_PROJECTION);
+//	glLoadIdentity();
+//	glOrtho(-1.0 * f_w, 1.0 * f_w, -1.0 * f_h, 1.0 * f_h, -1, 1);
+//}
+//
+//void display() {
+//	glClear(GL_COLOR_BUFFER_BIT);
+//	 
+//	if (mode == 0) { //0일땐 아무것도 안그린다
+//	}
+//	else if (mode == 1) //1일땐 Sphere
+//		glutWireSphere(0.3, 15, 15);
+//	else if (mode == 2) //2일땐 Torus
+//		glutWireTorus(0.2, 0.5, 15, 15);
+//	else  //둘다아닐때는 Teapot
+//			glutWireTeapot(0.3);
+//	
+//	
+//	glFlush();
+//}
+//
+//
+//	//마우스 드래그
+//void mouseDrag(int x, int y) {
+//	GLint dx, dy; 
+//	if (cur_x >= 0 || cur_y >= 0) {
+//		dx = abs(x - cur_x);
+//		dy = abs(y - cur_y); 
+//		GLint sum = dx + dy; 
+//	
+//			g = (g - 0.1) < 0 ? 0 : g - 0.1;
+//			b = (b - 0.1) < 0 ? 0 : b - 0.1;
+//			glColor3f(r, g, b);
+//			
+//			glutPostRedisplay();
+//		}
+//	
+//	cur_x = x; 
+//	cur_y = y;
+//}
+//
+//void selectMenu(int value) {
+//	if (value == 2)
+//		exit(0);
+//}
+//void selectSubMenu(int value) {
+//	mode = value;
+//	glutPostRedisplay();
+//}
+//
+//int main(int argc, char** argv) {
+//	glutInit(&argc, argv);
+//	glutInitDisplayMode(GLUT_RGB);
+//	glutCreateWindow("title");
+//	glutInitWindowSize(WIDHT, HEIGHT);
+//	glutDisplayFunc(display);
+//	glutReshapeFunc(reshape);
+//	glutMotionFunc(mouseDrag); 
+//
+//	int subMenuID = glutCreateMenu(selectSubMenu); //서브메뉴
+//	glutSetMenu(subMenuID);
+//	glutAddMenuEntry("sphere", 1);
+//	glutAddMenuEntry("Tours", 2);
+//	glutAddMenuEntry("Teapot", 3);
+//
+//	int mainMenuID = glutCreateMenu(selectMenu); //메뉴 만들기 (값을 받아 와 줘야한다)
+//	glutSetMenu(mainMenuID);//현재 메뉴에 지정 
+//	glutAttachMenu(GLUT_RIGHT_BUTTON);
+//	glutAddSubMenu("3D Model", subMenuID);
+//	glutAddMenuEntry("Exit", 2);
+//	
+//
+//
+//	glutMainLoop();
+//	return 0;
+//}
+
+// 애니메이션 및 더블버퍼링
+//
+//#include <GL/glut.h>
+//#include <GL/gl.h>
+//#include <GL/glu.h>
+//
+//GLfloat Delta = 0.0;
+//
+//void MyDisplay() {
+//	glClear(GL_COLOR_BUFFER_BIT);
+//	glBegin(GL_POLYGON);
+//	glColor3f(0.0, 0.5, 0.8);
+//		glVertex3f(-1.0 + Delta, -0.5, 0.0);
+//		glVertex3f(0.0 + Delta, -0.5, 0.0);
+//		glVertex3f(0.0 + Delta, 0.5, 0.0);
+//		glVertex3f(-1.0 + Delta, 0.5, 0.0);
+//	glEnd();
+//	glutSwapBuffers();
+//}
+//
+//void MyTimer(int vlaue) {
+//	Delta = Delta + 0.001;
+//	glutPostRedisplay();
+//	glutTimerFunc(20, MyTimer, 1);
+//}
+//int main(int argc, char** argv) {
+//	glutInit(&argc, argv);
+//	glutInitDisplayMode(GLUT_RGB | GLUT_DOUBLE);
+//	glutInitWindowSize(300, 300);
+//	glutInitWindowPosition(0, 0);
+//	glutCreateWindow("OpenGL");
+//	glClearColor(1.0, 1.0, 1.0, 1.0);
+//	glMatrixMode(GL_PROJECTION);
+//	glLoadIdentity();
+//	glOrtho(-1.0, 1.0, -1.0, 1.0, 1.0, -1.0);
+//	glutDisplayFunc(MyDisplay);
+//	glutTimerFunc(20, MyTimer, 1);
+//	glutMainLoop();
+//	return 0;
+//}
+
+
+//정점 배열 - 배열에 값을 넣어서 3차원 도형 그리기
+
+//#include <GL/glut.h>
+//
+//#define WIDTH 800
+//#define HEIGHT 800
+//
+//GLfloat MyVertices[8][3] = { {-0.5, -0.5 , 0.5},{-0.5,0.5,0.5},{0.5,0.5,0.5}, {0.5,-0.5,0.5}, {-0.5,-0.5,-0.5}, {-0.5,0.5,-0.5}, {0.5,0.5,-0.5},{0.5,-0.5,-0.25} };
+//GLfloat MyColors[8][3] = { {0.2,0.2,0.2}, {1.0, 0.0, 0.0}, {1.0, 1.0, 0.0}, {0.0,1.0,0.0}, {0.0,0.0,1.0}, {1.0,0.0,1.0}, {1.0,1.0,1.0}, {0.0,0.1,1.0} };
+//
+//void display() {
+//	glClear(GL_COLOR_BUFFER_BIT); //clear
+//	int idx[6][4] = { {0,3,2,1}, {2,3,7,6},{7,4,5,6}, {1,2,6,5},{0,3,7,4}, {0,4,5,1} };
+//	for (int i = 0; i < 6; i++) {
+//		int idx0 = idx[i][0];
+//		int idx1 = idx[i][1];
+//		int idx2 = idx[i][2];
+//		int idx3 = idx[i][3];
+//		glBegin(GL_POLYGON);
+//		glColor3fv(MyColors[idx0]); glVertex3fv(MyVertices[idx0]);
+//		glColor3fv(MyColors[idx1]); glVertex3fv(MyVertices[idx1]);
+//		glColor3fv(MyColors[idx2]); glVertex3fv(MyVertices[idx2]);
+//		glColor3fv(MyColors[idx3]); glVertex3fv(MyVertices[idx3]);
+//		glEnd();
+//	}
+//	glFlush();
+//
+//}
+//void reshape(int widht, int height) {
+//	glViewport(0, 0, widht, height);
+//	GLfloat f_w = (GLfloat)widht / (GLfloat)WIDTH;
+//	GLfloat f_h = (GLfloat)height / (GLfloat)HEIGHT;
+//	glMatrixMode(GL_PROJECTION);
+//	glLoadIdentity();
+//	glOrtho(-1.0 * f_w, 1.0 * f_w, -1.0 * f_h, 1.0 * f_h, -2, 2); //범위수정
+//	gluLookAt(0.5, -0.5, 1, 0, 0, 0, 0, 1, 0); //보는 방향
+//}
+//
+//
+//
+//int main(int argc, char* argv) {
+//	glutInit(&argc, &argv);
+//	glutInitDisplayMode(GLUT_RGB);
+//	glutCreateWindow("cube");
+//	glutInitWindowSize(WIDTH, HEIGHT);
+//
+//
+//	glutDisplayFunc(display);
+//	glutReshapeFunc(reshape);
+//	glutMainLoop();
+//	return 0;
+//}
+
+// 위치 크기를 입력해 정육면체 그리기
+
+//#include <GL/glut.h>
+//
+//#define WIDTH 1100
+//#define HEIGHT 1100
+//
+//
+//GLfloat defaultCube[8][3] = { {-0.5, -0.5 , 0.5},{-0.5,0.5,0.5},{0.5,0.5,0.5}, {0.5,-0.5,0.5}, {-0.5,-0.5,-0.5}, {-0.5,0.5,-0.5}, {0.5,0.5,-0.5},{0.5,-0.5,-0.25} };
+//GLfloat MyColors[8][3] = { {0.2,0.2,0.2}, {1.0, 0.0, 0.0}, {1.0, 1.0, 0.0}, {0.0,1.0,0.0}, {0.0,0.0,1.0}, {1.0,0.0,1.0}, {1.0,1.0,1.0}, {0.0,0.1,1.0} };
+//
+//void drawCube(GLfloat size, GLfloat x, GLfloat y, GLfloat z) {  //사이즈 X Y Z
+//	GLfloat myCube[8][3]; // 내용은 비어있음
+//	for (int i = 0; i < 8; i++) {
+//
+//		myCube[i][0] = size * defaultCube[i][0]; + x;
+//		myCube[i][1] = size * defaultCube[i][1]; + y;
+//		myCube[i][2] = size * defaultCube[i][2]; + z;
+//	}
+//		int idx[6][4] = { {0,3,2,1}, {2,3,7,6},{7,4,5,6}, {1,2,6,5},{0,3,7,4}, {0,4,5,1} };
+//
+//		for (int i = 0; i < 6; i++) {
+//			int idx0 = idx[i][0];
+//			int idx1 = idx[i][1];
+//			int idx2 = idx[i][2];
+//			int idx3 = idx[i][3];
+//			glBegin(GL_POLYGON);
+//			glColor3fv(MyColors[idx0]); glVertex3fv(myCube[idx0]);
+//			glColor3fv(MyColors[idx1]); glVertex3fv(myCube[idx1]);
+//			glColor3fv(MyColors[idx2]); glVertex3fv(myCube[idx2]);
+//			glColor3fv(MyColors[idx3]); glVertex3fv(myCube[idx3]);
+//			glEnd();
+//		}
+//	}
+// 
+//
+//
+//void display() {
+//	glClear(GL_COLOR_BUFFER_BIT); //clear
+//	
+//	drawCube(0.1, 0, 0, 0);
+//	drawCube(0.1, 0.8, 0, 0);
+//	drawCube(0.1, 0, 0.8, 0);
+//
+//	glFlush();
+//
+//}
+//void reshape(int widht, int height) {
+//	glViewport(0, 0, widht, height);
+//	GLfloat f_w = (GLfloat)widht / (GLfloat)WIDTH;
+//	GLfloat f_h = (GLfloat)height / (GLfloat)HEIGHT;
+//	glMatrixMode(GL_PROJECTION);
+//	glLoadIdentity();
+//	glOrtho(-1.0 * f_w, 1.0 * f_w, -1.0 * f_h, 1.0 * f_h, -2, 2); //범위수정
+//	gluLookAt(0.5, 0.5, 1, 0, 0, 0, 0, 1, 0); //보는 방향
+//}
+//
+//
+//
+//int main(int argc, char* argv) {
+//	glutInit(&argc, &argv);
+//	glutInitDisplayMode(GLUT_RGB);
+//
+//	glutInitWindowSize(WIDTH, HEIGHT);
+//	glutCreateWindow("cube");
+//	
+//
+//
+//	glutDisplayFunc(display);
+//	glutReshapeFunc(reshape);
+//	glutMainLoop();
+//	return 0;
+//}
+
+// 디스플레이 리스트
+//int list_id; //전역변수 생성
+//
+//void createList() {
+//	list_id = glGenList(1); //list 1개 생성
+//	glNewList(list)id, GL_COMPLIE); //리스트의 시작, 컴파일(계산)만 수행용
+//	glBegin(GL_POLYGON); 
+//	//그릴내용
+//	glEnd();
+//	glEndList(); //리스트종료
+//}
+//createList(); //Object 리스트 생성
+//glCallList(list_id); //Object List에 있는 내용 그리기, display 콜백함수 등에서 호출
+
+
+//#include <GL/glut.h>
+//
+//#define WIDTH 1100
+//#define HEIGHT 1100
+//
+//int list_id; //전역변수
+//
+//GLfloat defaultCube[8][3] = { {-0.5, -0.5 , 0.5},{-0.5,0.5,0.5},{0.5,0.5,0.5}, {0.5,-0.5,0.5}, {-0.5,-0.5,-0.5}, {-0.5,0.5,-0.5}, {0.5,0.5,-0.5},{0.5,-0.5,-0.25} };
+//GLfloat MyColors[8][3] = { {0.2,0.2,0.2}, {1.0, 0.0, 0.0}, {1.0, 1.0, 0.0}, {0.0,1.0,0.0}, {0.0,0.0,1.0}, {1.0,0.0,1.0}, {1.0,1.0,1.0}, {0.0,0.1,1.0} };
+//
+//void drawCube(GLfloat size, GLfloat x, GLfloat y, GLfloat z) {  //사이즈 X Y Z
+//	GLfloat myCube[8][3]; // 내용은 비어있음
+//	for (int i = 0; i < 8; i++) {
+//
+//		myCube[i][0] = size * defaultCube[i][0]; + x;
+//		myCube[i][1] = size * defaultCube[i][1]; + y;
+//		myCube[i][2] = size * defaultCube[i][2]; + z;
+//	}
+//		int idx[6][4] = { {0,3,2,1}, {2,3,7,6},{7,4,5,6}, {1,2,6,5},{0,3,7,4}, {0,4,5,1} };
+//
+//		for (int i = 0; i < 6; i++) {
+//			int idx0 = idx[i][0];
+//			int idx1 = idx[i][1];
+//			int idx2 = idx[i][2];
+//			int idx3 = idx[i][3];
+//			glBegin(GL_POLYGON);
+//			glColor3fv(MyColors[idx0]); glVertex3fv(myCube[idx0]);
+//			glColor3fv(MyColors[idx1]); glVertex3fv(myCube[idx1]);
+//			glColor3fv(MyColors[idx2]); glVertex3fv(myCube[idx2]);
+//			glColor3fv(MyColors[idx3]); glVertex3fv(myCube[idx3]);
+//			glEnd();
+//		}
+//	}
+//
+//
+//void createList() {
+//	list_id = glGenLists(1); //리스트 하나생성
+//	glNewList(list_id, GL_COMPILE);
+//		drawCube(0.1, 0, 0, 0);
+//		drawCube(0.1, 0.8, 0, 0);
+//		drawCube(0.1, 0, 0.8, 0);
+//	glEndList();
+//}
+//
+//void display() {
+//	glClear(GL_COLOR_BUFFER_BIT); //clear
+//	glCallList(list_id);
+//	
+//	glFlush();
+//
+//}
+//void reshape(int widht, int height) {
+//	glViewport(0, 0, widht, height);
+//	GLfloat f_w = (GLfloat)widht / (GLfloat)WIDTH;
+//	GLfloat f_h = (GLfloat)height / (GLfloat)HEIGHT;
+//	glMatrixMode(GL_PROJECTION);
+//	glLoadIdentity();
+//	glOrtho(-1.0 * f_w, 1.0 * f_w, -1.0 * f_h, 1.0 * f_h, -2, 2); //범위수정
+//	gluLookAt(0.5, 0.5, 1, 0, 0, 0, 0, 1, 0); //보는 방향
+//}
+//
+//
+//
+//int main(int argc, char* argv) {
+//	glutInit(&argc, &argv);
+//	glutInitDisplayMode(GLUT_RGB);
+//
+//	glutInitWindowSize(WIDTH, HEIGHT);
+//	glutCreateWindow("cube");
+//	
+//
+//
+//	glutDisplayFunc(display);
+//	glutReshapeFunc(reshape);
+//
+//	createList(); //생성
+//
+//	glutMainLoop();
+//	return 0;
+//}
+
+//모델 변환과 시점 변환
+
+//모델좌포계 (Modeling Coordinate System : MCS)
+//전역좌표계 (World Coordinate System : WCS)
+//축 방향은 편의에 따라 설정
+//모델 변환시 -> MCS상 좌표는 바뀌지 않음 & WCS 또는 MCS의 축만 변환됨
+
+// 실습 1. 3차원 좌표축 그리기
+
+//#include <GL/glut.h>
+//
+//#define WIDTH 500
+//#define HEIGHT 500
+//
+//void reshape(int widht, int height) {
+//	glViewport(0, 0, widht, height);
+//	GLfloat f_w = (GLfloat)widht / (GLfloat)WIDTH;
+//	GLfloat f_h = (GLfloat)height / (GLfloat)HEIGHT;
+//	glMatrixMode(GL_PROJECTION);
+//	glLoadIdentity();
+//	glOrtho(-1.0 * f_w, 1.0 * f_w, -1.0 * f_h, 1.0 * f_h, -2, 2); //범위수정
+//	gluLookAt(0.5, 0.5, 1, 0 ,0 ,0, 0,1,0);
+//}
+//void drawXAxis() {
+//	glBegin(GL_LINES); //축만 그리면 되니 선을 그려야한다
+//	glVertex3f(0, 0, 0);
+//	glVertex3f(0.2, 0, 0); //선 그리기 X축방향으로 0.1
+//	glVertex3f(0.2, 0, 0);
+//	glVertex3f(0.14, 0.06, 0);
+//	glVertex3f(0.2, 0, 0);
+//	glVertex3f(0.14, -0.06, 0);
+//
+//	glEnd();
+//}
+//
+//void drawAxis() { //축을 그려주는 함수
+//	glColor3f(1, 1, 1); // 선 색상
+//	glMatrixMode(GL_MODELVIEW); //모델뷰로 전환
+//	glLoadIdentity(); //초기화
+//	drawXAxis(); //로테이트 시키고
+//	glRotatef(90, 0, 0, 1);  //-90도 돌리고 Z축기준으로 돌림
+//	drawXAxis(); // 꼭 돌려줘야함 
+//	glRotatef(-90, 0, 0, 1);
+//
+//	glRotatef(-90, 0, 1, 0);  //z축방향으로
+//	drawXAxis();
+//	glRotatef(90, 0, 1, 0);
+//
+//	//	glBegin(GL_LINES); //축만 그리면 되니 선을 그려야한다
+//	//	glVertex3f(0, 0, 0);
+//	//	glVertex3f(0.2, 0, 0); //선 그리기 X축방향으로 0.1
+//	//	glVertex3f(0.2, 0, 0);
+//	//	glVertex3f(0.14, 0.06, 0);
+//	//	glVertex3f(0.2, 0, 0);
+//	//	glVertex3f(0.14, -0.06, 0);
+//	//	
+//	//glEnd();              //이 경우엔 X축 하나만 그릴수 있어 Y축 Z축 까지 그리면 코드가 길어진다. 그래서 drawXAxis를 이용
+//
+//}
+//void display() {
+//	glClear(GL_COLOR_BUFFER_BIT);
+//	drawAxis();
+//	glFlush();
+//
+//}
+//
+//int main(int argc, char** argv) {
+//		glutInit(&argc, argv);
+//		glutInitDisplayMode(GLUT_RGB);
+//		glutInitWindowSize(WIDTH, HEIGHT);
+//		glutCreateWindow("title");
+//		glutDisplayFunc(display);
+//		glutReshapeFunc(reshape);
+//	
+//		glutMainLoop();
+//		return 0;
+//}
+// 실습 2 정육면체그리고, 회전 이동 크기변환 시키기
