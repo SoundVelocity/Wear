@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
         tableB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new JSONTask().execute("http://127.0.0.1:3000/");
+                new JSONTask().execute("http://127.0.0.1:3000/users");
             }
         });
     }
